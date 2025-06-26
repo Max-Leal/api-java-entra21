@@ -1,13 +1,26 @@
 package com.api.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_produtos")
 public class Produto {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String descricao;
 	private Double preco;
 	private String unidadeMedida;
 	private int estoque;
 	private String fornecedor;
+	@ManyToOne
+	private Categoria categoria; //agregação
 	
 	public Produto() {}
 
