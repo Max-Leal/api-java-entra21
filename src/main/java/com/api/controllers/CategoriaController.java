@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.models.Produto;
-import com.api.services.ProdutoService;
+import com.api.models.Categoria;
+import com.api.services.CategoriaService;
 
 @RestController
-@RequestMapping("api/v1/produtos")
-public class ProdutoController {
-
+@RequestMapping("api/v1/categorias")
+public class CategoriaController {
+	
 	@Autowired
-	private ProdutoService service;
-
+	private CategoriaService service;
+	
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody Produto p) {
+	public ResponseEntity<?> salvar(@RequestBody Categoria c) {
 
 		try {
-			return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(p));
+			return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(c));
 		} catch (RuntimeException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
@@ -42,9 +42,9 @@ public class ProdutoController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> alterar(@PathVariable Long id, @RequestBody Produto p) {
+	public ResponseEntity<?> alterar(@PathVariable Long id, @RequestBody Categoria c) {
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(service.alterar(id, p));
+			return ResponseEntity.status(HttpStatus.OK).body(service.alterar(id,c));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
@@ -53,7 +53,7 @@ public class ProdutoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getProdutoById(@PathVariable Long id) {
 		try {
-			return ResponseEntity.ok().body(service.getProdutoById(id));
+			return ResponseEntity.ok().body(service.getCategoriaById(id));
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -64,4 +64,5 @@ public class ProdutoController {
 	public void delete(@PathVariable Long id) {
 		service.deletar(id);
 	}
+
 }

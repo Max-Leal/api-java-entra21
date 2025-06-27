@@ -28,8 +28,8 @@ public class CategoriaService {
 		return repository.findById(id).orElseThrow(() -> new RuntimeException("Não encontrado"));
 	}
 	
-	public Categoria alterar(Categoria c) {
-		Categoria catSalva = getCategoriaById(c.getId());
+	public Categoria alterar(Long id, Categoria c) {
+		Categoria catSalva = getCategoriaById(id);
 		catSalva.setDescricao(c.getDescricao());
 		
 		return repository.save(catSalva);

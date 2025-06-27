@@ -27,8 +27,8 @@ public class ProdutoService {
 		return repository.findById(id).orElseThrow(() -> new RuntimeException("Não encontrado"));
 	}
 	
-	public Produto alterar(Produto p) {
-		Produto produtoSalvo = getProdutoById(p.getId());
+	public Produto alterar(Long id, Produto p) {
+		Produto produtoSalvo = getProdutoById(id);
 		
 		
 		produtoSalvo.setDescricao(p.getDescricao());

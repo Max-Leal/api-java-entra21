@@ -20,20 +20,24 @@ public class Produto {
 	private int estoque;
 	private String fornecedor;
 	@ManyToOne
-	private Categoria categoria; //agregação
-	
-	public Produto() {}
+	private Categoria categoria; // agregação
 
-	public Produto(String descricao, Double preco, String unidadeMedida, int estoque, String fornecedor) {
+	public Produto() {
+	}
+
+	public Produto(String descricao, Double preco, String unidadeMedida, int estoque, String fornecedor,
+			Categoria categoria) {
 		super();
 		this.descricao = descricao;
 		this.preco = preco;
 		this.unidadeMedida = unidadeMedida;
 		this.estoque = estoque;
 		this.fornecedor = fornecedor;
+		this.categoria = categoria;
 	}
 
-	public Produto(Long id, String descricao, Double preco, String unidadeMedida, int estoque, String fornecedor) {
+	public Produto(Long id, String descricao, Double preco, String unidadeMedida, int estoque, String fornecedor,
+			Categoria categoria) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -41,6 +45,7 @@ public class Produto {
 		this.unidadeMedida = unidadeMedida;
 		this.estoque = estoque;
 		this.fornecedor = fornecedor;
+		this.categoria = categoria;
 	}
 
 	public Long getId() {
@@ -98,7 +103,5 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	
-	
+
 }
