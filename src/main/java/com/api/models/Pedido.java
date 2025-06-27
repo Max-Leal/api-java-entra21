@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 @Table(name = "tb_pedidos")
 public class Pedido {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDate data;
 	

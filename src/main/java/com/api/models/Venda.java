@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 @Table(name = "tb_vendas")
 public class Venda {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDate data;
 	public Long getId() {
