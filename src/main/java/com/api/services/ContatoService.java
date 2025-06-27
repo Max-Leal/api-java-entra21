@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.api.interfaces.ContatoRepository;
 import com.api.models.Contato;
+import com.api.repositories.ContatoRepository;
 
 @Service
 public class ContatoService {
