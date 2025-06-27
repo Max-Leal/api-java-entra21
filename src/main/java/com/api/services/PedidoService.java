@@ -32,6 +32,7 @@ public class PedidoService {
 		Pedido pediSalvo = getCategoriaById(id);
 		
 		pediSalvo.setData(p.getData());
+		pediSalvo.setProdutos(p.getProdutos());
 		
 		return repository.save(pediSalvo);
 	}
