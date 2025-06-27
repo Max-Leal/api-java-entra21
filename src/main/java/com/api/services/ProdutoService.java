@@ -23,6 +23,26 @@ public class ProdutoService {
 		return repository.findAll();
 	}
 	
+	public Produto getProdutoById(Long id) {
+		return repository.findById(id).orElseThrow(() -> new RuntimeException("Não encontrado"));
+	}
 	
+	public Produto alterar(Produto p) {
+		Produto produtoSalvo = getProdutoById(p.getId());
+		
+		
+		produtoSalvo.setDescricao(p.getDescricao());
+		produtoSalvo.setPreco(p.getPreco());
+		produtoSalvo.setEstoque(p.getEstoque());
+		produtoSalvo.setFornecedor(p.getFornecedor());
+		produtoSalvo.setUnidadeMedida(p.getUnidadeMedida());
+		produtoSalvo.setCategoria(p.getCategoria());
+		
+		return repository.save(produtoSalvo);
+	}
+	
+	public void deletar(Long id) {
+		repository.deleteById(id);
+	}
 	
 }

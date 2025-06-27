@@ -90,6 +90,15 @@ public class Produto {
 	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
 	
 	
 }
